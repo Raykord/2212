@@ -19,6 +19,11 @@ playerImage = pygame.transform.scale(playerImageOrig, (player.width,player.heigh
 direction = 'none'
 gameState = 0
 
+font = pygame.font.SysFont('Arial', 30)
+
+startText1 = font.render('Добро пожаловать', True, (0, 255, 0))
+startText2 = font.render('Нажмите пробел', True, (0, 255, 0))
+
 while True:
     screen.fill(BG) #Меняем цвет фона
     
@@ -29,6 +34,8 @@ while True:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     gameState = 1
+        screen.blit(startText1, (20, 225))
+        screen.blit(startText2, (20, 255))
     elif gameState == 1:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:

@@ -17,12 +17,12 @@ clock = pygame.time.Clock() #класс для работы с фпс
 playerImageOrig = pygame.image.load('oar2.jpg') #Добавили картинку 
 playerImage = pygame.transform.scale(playerImageOrig, (player.width,player.height)) #Растянули по размеру хитбокса игрока
 direction = 'none'
-gameState = 0
+gameState = 0 #Игровое состояние (меню - 0, игра - 1, лузскрин - 2)
 
-font = pygame.font.SysFont('Arial', 30)
+font = pygame.font.SysFont('Arial', 30) #Создаём шрифт
 
-startText1 = font.render('Добро пожаловать', True, (0, 255, 0))
-startText2 = font.render('Нажмите пробел', True, (0, 255, 0))
+startText1 = font.render('Добро пожаловать', True, (0, 255, 0)) #Созаём картинку с текстом
+startText2 = font.render('Нажмите пробел', True, (0, 255, 0) )#Созаём картинку с текстом
 
 while True:
     screen.fill(BG) #Меняем цвет фона
@@ -34,8 +34,8 @@ while True:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     gameState = 1
-        screen.blit(startText1, (20, 225))
-        screen.blit(startText2, (20, 255))
+        screen.blit(startText1, (20, 225)) #Рисуем картинку с текстом
+        screen.blit(startText2, (20, 255)) #Рисуем картинку с текстом
     elif gameState == 1:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
